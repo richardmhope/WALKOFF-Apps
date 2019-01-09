@@ -1,0 +1,31 @@
+walkoff: '0.1'
+info:
+  version: 1.0.0
+  title: VirusTotal
+  description: An app which interacts with VirusTotal
+  contact:
+    name: Richard Hope
+  license:
+    name: Creative Commons
+actions:
+  search_hash:
+    run: app.VirusTotal.search_hash
+    description: Searches for a given file hash in VT
+    parameters:
+      - name: file_hash
+        description: The hash to search
+        required: true
+        type: string
+    returns:
+      Success:
+        schema:
+          type: object
+devices:
+  Account:
+    description: VT api key
+    fields:
+      - name: api_key
+        type: string
+        description: API Key
+        placeholder: API Key
+        required: true

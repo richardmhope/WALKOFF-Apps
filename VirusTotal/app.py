@@ -8,7 +8,9 @@ class VirusTotal(App):
     def __init__(self, name, device, context):
         App.__init__(self, name, device, context)
         self.url = 'https://www.virustotal.com/vtapi/v2/file/report'
-        self.proxy = {
+        
+        if self.proxy_address and self.proxy_port:
+            self.proxy = {
                         'http': 'http://%s:%s' % (self.device.proxy_address, self.device.proxy_port),
                         'https': 'https://%s:%s' % (self.device.proxy_address, self.device.proxy_port),
                     }

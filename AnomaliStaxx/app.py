@@ -22,7 +22,7 @@ class AnomaliStaxx(App):
     def authenticate(self, user, password):
         url = self.base_url + 'login'
         data  = json.dumps({'username':user, 'password':password})
-        request = requests.post(url, data=data, headers=HEADERS, verify=False)
+        request = requests.post(url, data=data, headers=self.headers, verify=False)
         if request.status_code == 200:
             return request.json()['token_id']
 

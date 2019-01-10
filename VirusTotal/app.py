@@ -10,6 +10,7 @@ class VirusTotal(App):
         self.url = 'https://www.virustotal.com/vtapi/v2/file/report'
         
         print(self.device_fields)
+        self.proxy = None
         self.api_key = self.device_fields['api_key']
 
     @action

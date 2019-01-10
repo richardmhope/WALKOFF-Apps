@@ -18,7 +18,7 @@ class AnomaliStaxx(App):
         self.verify_certificate = self.device_fields['verify_certificate']
 
     def authenticate(self, user, password):
-        url = BASE_URL + 'login'
+        url = self.base_url + 'login'
         data  = json.dumps({'username':user, 'password':password})
         request = requests.post(url, data=data, headers=HEADERS, verify=False)
         if request.status_code == 200:

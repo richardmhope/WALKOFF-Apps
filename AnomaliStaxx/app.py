@@ -32,5 +32,5 @@ class AnomaliStaxx(App):
         url = self.base_url + 'intelligence'
         data = json.dumps({'token':token, 'query':search, 'type':'json'})
         response = requests.post(url, data=data, headers=self.headers, verify=self.verify_certificate).json()
-        if request.status_code == 200:
-            return request
+        if response.status_code == 200:
+            return response

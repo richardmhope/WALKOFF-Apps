@@ -17,7 +17,7 @@ class AnomaliStaxx(App):
         self.staxx_password = self.device.get_encrypted_field('password')
         self.verify_certificate = self.device_fields['verify_certificate']
 
-    def authenticate(user, password):
+    def authenticate(self, user, password):
         url = BASE_URL + 'login'
         data  = json.dumps({'username':user, 'password':password})
         request = requests.post(url, data=data, headers=HEADERS, verify=False)
@@ -26,7 +26,7 @@ class AnomaliStaxx(App):
 
     @action
     def export_indicators(self, search=None):
-        token = authenticate(self.staxx_username, self.staxx_password)
+        token = self.authenticate(self.staxx_username, self.staxx_password)
         url = self.base_url + 'intelligence'
         data = json.dumps({'token':token, 'query':search, 'type':'json'})
         response = requests.post(url, data=data, headers=self.headers, verify=self.verify_certificate).json()

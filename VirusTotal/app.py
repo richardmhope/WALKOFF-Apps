@@ -17,7 +17,7 @@ class VirusTotal(App):
         self.api_key = self.device_fields['api_key']
 
     @action
-    def search_hash(self, file_hash=None):
+    def search_hash(self, file_hash):
         params = {'apikey': self.api_key, 'resource': file_hash}
         response = requests.get(self.url, params=params, proxies=self.proxy).json()
         return response

@@ -28,4 +28,15 @@ devices:
         type: string
         description: API Key
         placeholder: API Key
+        encrypted: true
         required: true
+      - name: proxy_address
+        type: string
+        description: Proxy Address
+        placeholder: Proxy Address
+        required: false
+      - name: proxy_port
+        type: string
+        description: Proxy port
+        placeholder: Proxy port
+        required: false

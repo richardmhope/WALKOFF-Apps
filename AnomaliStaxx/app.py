@@ -11,9 +11,11 @@ class AnomaliStaxx(App):
 
     def __init__(self, name, device, context):
         App.__init__(self, name, device, context)
-        self.base_url = 'https://10.170.27.107:8080/api/v1/'
+        self.base_url = 'https://%s:%s/api/v1/' % (self.device_fields['staxx_address'], self.device_fields['staxx_port'])
         self.headers = {'content-type': 'application/json'}
-        self.api_key = self.device_fields['key']
+        self.staxx_username = self.device.get_encrypted_field('username')
+        self.staxx_password = self.device.get_encrypted_field('password')
+        self.verify_certificate = self.device_fields['verify_certificate']
 
     def authenticate(user, password):
         url = BASE_URL + 'login'
@@ -23,9 +25,10 @@ class AnomaliStaxx(App):
             return request.json()['token_id']
 
     @action
-    def export_indicators(self, search=None proxy=None):
-        url = BASE_URL + 'intelligence'
-        data = json.dumps({'token':token, 'query':query, 'type':'json'})
-        request = requests.post(url, data=data, headers=HEADERS, verify=False)
+    def export_indicators(self, search=None):
+        token = authenticate(self.staxx_username, self.staxx_password)
+        url = self.base_url + 'intelligence'
+        data = json.dumps({'token':token, 'query':search, 'type':'json'})
+        response = requests.post(url, data=data, headers=self.headers, verify=self.verify_certificate).json()
         if request.status_code == 200:
-            return request.json
+            return request

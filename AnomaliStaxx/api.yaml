@@ -15,9 +15,6 @@ actions:
       - name: search
         description: Staxx search string
         type: string
-      - name: proxy
-        description: url of proxy server to route request through
-        type: string
     default_return: Success
     returns:
       Success:
@@ -38,14 +35,18 @@ devices:
         encrypted: true
         placeholder: password
         required: true
-      - name: ip
+      - name: staxx_address
         description: IP address of Staxx
         type: string
         placeholder: ip address
         required: true
-      - name: port
+      - name: staxx_port
         description: Port of Staxx
         type: integer
         minimum: 1
         maximum: 65355
+        required: true
+      - name: verify_certificate
+        description: Port of Staxx
+        type: boolean
         required: true

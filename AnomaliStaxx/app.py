@@ -13,7 +13,7 @@ class AnomaliStaxx(App):
         App.__init__(self, name, device, context)
         self.base_url = 'https://%s:%s/api/v1/' % (self.device_fields['staxx_address'], self.device_fields['staxx_port'])
         self.headers = {'content-type': 'application/json'}
-        self.staxx_username = self.device.get_encrypted_field('username')
+        self.staxx_username = self.device_fields['username']
         self.staxx_password = self.device.get_encrypted_field('password')
         self.verify_certificate = self.device_fields['verify_certificate']
 

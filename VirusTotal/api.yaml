@@ -4,7 +4,7 @@ info:
   title: VirusTotal
   description: An app which interacts with VirusTotal
   contact:
-    name: Richard Hope
+    name: https://github.com/richardmhope
   license:
     name: Creative Commons
 actions:
@@ -14,6 +14,42 @@ actions:
     parameters:
       - name: file_hash
         description: The hash to search
+        required: true
+        type: string
+    returns:
+      Success:
+        schema:
+          type: object
+  search_ip:
+    run: app.VirusTotal.search_ip
+    description: Searches for a given IP Address in VT
+    parameters:
+      - name: ip
+        description: The IP to search
+        required: true
+        type: string
+    returns:
+      Success:
+        schema:
+          type: object
+  search_domain:
+    run: app.VirusTotal.search_domain
+    description: Searches for a given domain in VT
+    parameters:
+      - name: domain
+        description: The domain to search
+        required: true
+        type: string
+    returns:
+      Success:
+        schema:
+          type: object
+  scan_url:
+    run: app.VirusTotal.scan_url
+    description: Scans a given URL with VT
+    parameters:
+      - name: url
+        description: The URL to scan
         required: true
         type: string
     returns:

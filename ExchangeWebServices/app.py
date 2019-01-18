@@ -76,3 +76,8 @@ class ExchangeWebServices(App):
     def get_oldest_inbox_message(self)
         email = self.account.inbox.all().order_by('datetime_received')[0]
         return email.item_id
+
+    @action
+    def get_newest_inbox_message(self)
+        email = self.account.inbox.all().order_by('-datetime_received')[0]
+        return email.item_id

@@ -1,0 +1,85 @@
+walkoff: '0.1'
+info:
+  version: 1.0.0
+  title: Exchange Web Services
+  description: Interact with MS Exchange
+  contact:
+    name: https://github.com/richardmhope
+  license:
+    name: Creative Commons
+actions:
+  read_message:
+    run: app.ExchangeWebServices.read_message
+    description: Gets email with given item_id
+    parameters:
+        - name: item_id
+          description: The item_id of the email to read
+          required: true
+          schema:
+            type: string
+    returns:
+      Success:
+        schema:
+          type: object
+  move_message:
+    run: app.ExchangeWebServices.move_message
+    description: Moves email to folder under inbox
+    parameters:
+        - name: item_id
+          description: The item_id of the email to read
+          required: true
+          schema:
+            type: string
+        - name: folder
+          description: The destination folder
+          required: true
+          schema:
+            type: string
+    returns:
+      Success:
+        schema:
+          type: object
+  delete_message:
+    run: app.ExchangeWebServices.delete_message
+    description: Moves email with given item_id to Deleted Items
+    parameters:
+        - name: item_id
+          description: The item_id of the email to delete
+          required: true
+          schema:
+            type: string
+    returns:
+      Success:
+        schema:
+          type: string
+  hard_delete_message:
+    run: app.ExchangeWebServices.hard_delete_message
+    description: Deletes email with given item_id
+    parameters:
+        - name: item_id
+          description: The item_id of the email to delete
+          required: true
+          schema:
+            type: string
+    returns:
+      Success:
+        schema:
+          type: string
+  categorize_message:
+    run: app.ExchangeWebServices.categorize_message
+    description: Categorizes email with given item_id
+    parameters:
+        - name: item_id
+          description: The item_id of the email to delete
+          required: true
+          schema:
+            type: string
+        - name: categories
+          description: List of categories to set
+          required: true
+          schema:
+            type: array
+    returns:
+      Success:
+        schema:
+          type: string

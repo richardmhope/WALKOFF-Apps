@@ -83,3 +83,44 @@ actions:
       Success:
         schema:
           type: string
+  get_message_attachments:
+    run: app.ExchangeWebServices.get_message_attachments
+    description: Gets the content of a message attachment
+    parameters:
+        - name: item_id
+          description: The item_id of the email to get the attachments for
+          required: true
+          schema:
+            type: string
+    returns:
+      Success:
+        schema:
+          type: string
+  get_inbox_folders:
+    run: app.ExchangeWebServices.get_inbox_folders
+    description: Gets a list of folders in the inbox
+    returns:
+      Success:
+        schema:
+          type: array
+  get_inbox_messages:
+    run: app.ExchangeWebServices.get_inbox_messages
+    description: Gets a list of messages in the inbox
+    returns:
+      Success:
+        schema:
+          type: array
+  get_oldest_inbox_message:
+    run: app.ExchangeWebServices.get_oldest_inbox_message
+    description: Gets the item_id oldest message in the inbox
+    returns:
+      Success:
+        schema:
+          type: string
+  get_newest_inbox_message:
+    run: app.ExchangeWebServices.get_newest_inbox_message
+    description: Gets the item_id newest message in the inbox
+    returns:
+      Success:
+        schema:
+          type: string

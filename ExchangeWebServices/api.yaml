@@ -124,3 +124,28 @@ actions:
       Success:
         schema:
           type: string
+devices:
+  Exchange:
+    description: Exchange Web Services Instance
+    fields:
+      - name: username
+        type: string
+        description: Username for Exchange
+        placeholder: username
+        required: true
+      - name: password
+        type: string
+        description: Password for Exchange
+        encrypted: true
+        placeholder: password
+        required: true
+      - name: inbox
+        description: Inbox to Connect to
+        type: string
+        placeholder: Inbox
+        required: true
+      - name: host
+        description: Hostname/IP address of Exchange
+        type: string
+        placeholder: Host
+        required: true

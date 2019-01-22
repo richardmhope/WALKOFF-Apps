@@ -9,7 +9,7 @@ info:
     name: Creative Commons
 actions:
   extract_urls_from_text:
-    run: extract_urls_from_text
+    run: app.extract_urls_from_text
     description: Returns a list of urls in given text
     parameters:
         - name: text
@@ -22,7 +22,7 @@ actions:
         schema:
           type: array
   hostname_from_url:
-    run: hostname_from_url
+    run: app.hostname_from_url
     description: Returns hostname for a given url
     parameters:
         - name: url
@@ -35,7 +35,7 @@ actions:
         schema:
           type: string
   tld_from_domain:
-    run: tld_from_domain
+    run: app.tld_from_domain
     description: Returns tld for a given domain
     parameters:
         - name: domain
@@ -47,8 +47,8 @@ actions:
         description: hostname
         schema:
           type: string
-  reolve_ip_for_host:
-    run: reolve_ip_for_host
+  resolve_ip_for_host:
+    run: app.resolve_ip_for_host
     description: Returns ip for a given hostname
     parameters:
         - name: hostname

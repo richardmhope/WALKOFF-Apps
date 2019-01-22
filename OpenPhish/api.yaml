@@ -1,0 +1,18 @@
+walkoff: '0.1'
+info:
+  version: 1.0.0
+  title: OpenPhish
+  description: An app for fetching the opnphish community feed
+  contact:
+    name: https://github.com/richardmhope
+  license:
+    name: Creative Commons
+actions:
+  fetch_list:
+    run: app.OpenPhish.fetch_list
+    description: Returns a list of phishing URLS
+    returns:
+      Success:
+        description: list of phishing URLS
+        schema:
+          type: array

@@ -83,6 +83,45 @@ actions:
       Success:
         schema:
           type: string
+  get_attachment_count:
+    run: app.ExchangeWebServices.get_attachment_count
+    description: Attachment count email with given item_id
+    parameters:
+        - name: item_id
+          description: The item_id of the email to delete
+          required: true
+          schema:
+            type: string
+            returns:
+      Success:
+        schema:
+          type: integer
+  attachment_is_message:
+    run: app.ExchangeWebServices.attachment_is_message
+    description: Gets attachment type for email with given item_id
+    parameters:
+        - name: item_id
+          description: The item_id of the email to delete
+          required: true
+          schema:
+            type: string
+            returns:
+      Success:
+        schema:
+          type: boolean
+  get_message_attachment:
+    run: app.ExchangeWebServices.get_message_attachment
+    description: Gets attached email with given item_id
+    parameters:
+        - name: item_id
+          description: The item_id of the email to delete
+          required: true
+          schema:
+            type: string
+    returns:
+      Success:
+        schema:
+          type: object
   get_message_attachments:
     run: app.ExchangeWebServices.get_message_attachments
     description: Gets the content of a message attachment
